@@ -2,9 +2,7 @@
 <h4> Trabajo práctico 2 de Simulación y Modelización. </h4>
 
 ## Descripción
-<p> Consiste en la programación lógica y utilización del hardware necesario para la creación de un robot con movimiento por proximidad. </p>
-<p> Para esto se utilizan y controlan dos motores DC, un servo y un sensor ultrasónico a través de una EDU-CIAA. </p>
+<p> Consiste en la simulación de un Multitasking programado en python, el cual es capaz de interpretar funciones básicas de Assembler, ensamblando y creando un ejecutable tras la lectura de diferentes .asm. También se emula la función de un procesador, sistema operativo, system calls, include de librerias, etc. </p>
 
 ## Aclaraciones
-<p> El archivo "TL1_Arq2_2C2022.pdf" son las consignas </p>
-<p> El archivo "ARQ 2 - Trabajo Laboratorio 1" explica detalladamente la resolución, incluyendo toda la investigación realizada y la configuración tanto de software como de hardware </p>
+<p> El archivo "multitasking.py" es el principal. Todos los .txt serian archivos assembler que pueden ejecutarse como prueba, entre estos los mas importantes son "libreriaMath.txt", "fibonacci.txt" y "raizCuadratica.txt".</p>
