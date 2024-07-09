@@ -1,0 +1,17 @@
+EntryPoint:
+Mov  ax,bx,cx
+Mov cx 1
+Mov zx, 1
+Mov cx , 1
+Ciclo:
+Add ax, cx
+Inc cx
+Hola:
+Cmp cx, 4
+Jz Ciclo
+Jmp Fin
+Mov ax, dx
+Fin:
+Hola:
+Cmp cx, zx
+Jmp Pepito

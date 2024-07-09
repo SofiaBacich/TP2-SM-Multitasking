@@ -1,0 +1,14 @@
+EntryPoint:
+Mov cx, 1
+Mov dx, 1
+Ciclo:
+Add ax, cx
+Inc cx
+Hola:
+Cmp cx, 2
+Jz Ciclo
+Jmp Fin
+Mov ax, dx
+Fin:
+Int 1
+Mov ax, cx

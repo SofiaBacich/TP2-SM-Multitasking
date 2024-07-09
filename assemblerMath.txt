@@ -1,0 +1,26 @@
+include "libreriaMath.txt"
+
+EntryPoint:
+
+Push -3
+Push 2
+CALL Multiplicar
+Mov bx, 1
+Mov cx, 2
+Int 1
+Push ax
+Push 4
+Call Dividir
+Mov dx, ax
+Mov ax, bx
+Mov bx, 2
+Mov cx, 2
+Int 1
+Mov ax, dx
+Mov cx, 5
+Int 1
+Push 11
+Call RaizCuadrada
+Mov bx, 3
+Mov cx, 2
+Int 1

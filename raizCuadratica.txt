@@ -1,0 +1,96 @@
+include "libreriaMath.txt"
+
+RaizCuadratica:
+Pop dx
+Pop cx
+Pop bx
+Pop ax
+Push dx
+Push ax
+Push bx
+Push cx
+Push bx
+Push bx
+Call Multiplicar
+Pop cx
+Pop bx
+Pop dx
+Push ax
+Mov ax, dx
+Push ax
+Push bx
+Push cx
+Push ax
+Push 4
+Call Multiplicar
+Pop cx
+Pop bx
+Pop dx
+Push ax
+Mov ax, dx
+Pop dx
+Push ax
+Push bx
+Push cx
+Push cx
+Push dx
+Call Multiplicar
+Pop cx
+Pop bx
+Pop dx
+Push ax
+Mov ax, dx
+Pop dx
+Pop cx
+Push ax
+Push bx
+Neg dx
+Add cx, dx
+Push cx
+Call RaizCuadrada
+Mov dx, ax
+Pop bx
+Pop ax
+Neg bx
+Push bx
+Push dx
+Push 2
+Push ax
+Call Multiplicar
+Pop dx
+Pop bx
+Push bx
+Push dx
+Push ax
+Add bx, dx
+Mov cx, dx
+Push cx
+Push ax
+Call Dividir
+Mov cx, bx
+Pop ax
+Pop dx
+Pop bx
+Neg dx
+Add bx, dx
+Push cx
+Push bx
+Push ax
+Call Dividir
+Pop ax
+RET
+
+EntryPoint:
+
+Push 1
+Push 4
+Push 2
+CALL RaizCuadratica
+Mov ax, bx
+Mov dx, cx
+Mov bx, 1
+Mov cx, 2
+Int 1
+Mov ax, dx
+Mov cx, 5
+Int 1

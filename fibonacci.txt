@@ -1,0 +1,32 @@
+include "libreriaMath.txt"
+
+Fibonacci:
+Pop bx
+Pop cx
+Push bx
+CMP cx, 2
+JLE FinCicloFibonacci
+CicloFibonacci:
+Mov bx, cx
+Dec bx
+Mov ax, bx
+Dec ax
+Push ax
+Push bx
+Call Fibonacci
+Call Fibonacci
+FinFibonacci:
+RET
+
+FinCicloFibonacci:
+Add dx, 1
+Jmp FinFibonacci 
+
+EntryPoint:
+
+Push 7
+CALL Fibonacci
+Mov ax, dx
+Mov bx, 1
+Mov cx, 2
+Int 1

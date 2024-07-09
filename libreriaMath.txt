@@ -1,0 +1,133 @@
+Multiplicar:
+Pop bx
+Pop cx
+Pop dx
+Push bx
+Push cx
+Push dx
+Push cx
+Call SignoOperacion
+Pop cx
+Push ax
+Mov bx, 0
+Mov ax, 0
+Call NegarParametrosSiSonNegativos
+CicloMultiplicar:
+Add ax, dx
+Inc bx
+Cmp bx, cx
+Jz CicloMultiplicar
+Pop bx
+Cmp bx, 1
+Jnz FinMultiplicar
+Neg ax
+FinMultiplicar:
+Ret
+
+NegarParametrosSiSonNegativos:
+ChequeoUno:
+Cmp dx, 0
+Jge ChequeoDos
+Neg dx
+ChequeoDos:
+Cmp cx, 0
+Jge FinChequeo
+Neg cx
+FinChequeo:
+RET
+
+SignoOperacion:
+Pop bx
+Pop cx
+Pop dx
+Push bx
+Mov ax, 1
+Mov bx, 1
+ComparacionPrimerParametro:
+Cmp cx, 0
+Jge ComparacionSegundoParametro
+Neg ax
+ComparacionSegundoParametro:
+Cmp dx, 0
+Jge ComparacionFinal
+Neg bx
+ComparacionFinal:
+Mov cx, ax
+Mov ax, 1
+Cmp cx, bx 
+Jnz FinSigno
+Neg ax
+FinSigno:
+RET
+
+Restar:
+Pop bx
+Pop cx
+Pop dx
+Push bx
+Neg cx
+Add cx, dx
+Mov ax, cx
+Ret
+
+Dividir:
+Pop bx
+Pop cx
+Pop dx
+Push bx
+Push cx
+Push dx
+Push cx
+Call SignoOperacion
+Pop cx
+Push ax
+Mov bx, 0
+Mov ax, 0
+Call NegarParametrosSiSonNegativos
+CicloDivision:
+Add ax, cx
+Inc bx
+Cmp ax, dx
+Jz ResultadoNoExactoDivision
+Jmp FinCicloDivision
+ResultadoNoExactoDivision:
+Jle CicloDivision
+Dec bx
+neg cx
+Add ax, cx
+Neg ax
+Add dx, ax
+Mov ax, dx
+Mov dx, 0
+FinCicloDivision:
+Cmp ax, dx
+Jz FinCalculoDivision
+Mov ax, 0
+FinCalculoDivision:
+Pop cx
+Cmp cx, 1
+Jnz FinDivision
+Neg bx
+FinDivision:
+RET
+
+
+RaizCuadrada:
+Pop bx
+Pop cx
+Push bx
+Mov dx, 0
+CicloRaiz:
+Inc dx
+Push cx
+Push dx
+Push dx
+Call Multiplicar
+Pop cx
+Cmp ax, cx
+Jnz FinRaiz
+Jle CicloRaiz
+Dec dx
+FinRaiz:
+Mov ax, dx
+RET

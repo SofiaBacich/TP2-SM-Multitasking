@@ -1,0 +1,27 @@
+Sumar:
+Pop bx
+Pop cx 
+Pop dx 
+Push bx 
+Add cx, dx
+Mov ax, cx
+Ret
+
+
+
+EntryPoint:
+Include "pepito.txt"
+Mov cx , 1
+Ciclo:
+Add ax, cx
+Inc cx
+Hola:
+Cmp cx, 2
+Jz Ciclo
+Jmp Fin
+Mov ax, dx
+Fin:
+PUSH 5
+PUSH 7
+CALL Sumar
+MOV BX, AX
